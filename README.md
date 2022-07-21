@@ -42,4 +42,7 @@ We'd like to build a new `part` view that has CRUD operations and utilizes [Djan
 2. Write tests to confirm the new view's functionality.
 
 ## Task 3
-To support our Sales team, we'd like to build an endpoint that returns the 5 most common words in our part descriptions. To accomplish this, you'll need to create a new **DRF Action** that utilizes NLTK tokenization to aggregate the five most common words in the `description` field of our parts.
+To support our Sales team, we'd like to build an endpoint that returns the 5 most common words in our part descriptions.
+
+1. Create a new **DRF Action** that utilizes NLTK tokenization to aggregate the five most common words in the `description` field of our parts.
+2. Write tests to confirm the action's functionality.
