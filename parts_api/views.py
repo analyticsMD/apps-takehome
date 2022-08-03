@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_http_methods
 import json
 import sqlite3
 from rest_framework.viewsets import ReadOnlyModelViewSet
@@ -15,6 +16,7 @@ def home(request):
 
 
 @csrf_exempt
+@require_http_methods(["PUT"])
 def update_part(request, part_id):
     part = json.loads(request.body)
     # this table is part of the ERP application, so I can't create a model for it, because it tries to create migrations
