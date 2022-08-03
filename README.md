@@ -21,10 +21,10 @@ Parts Unlimited catalogs its seemingly unlimited parts, and this service is used
 The team has determined the following view is not working as expected, and the bug has been assigned to you to fix.
 
 The relevant URL entry is:
-`url(r'/part/(?P<part_id>\w+)', views.update_part)`
+`url(r'part/update/(?P<part_id>\d+)/$', views.update_part)`
 
 An example request that isn't working is:
-`PUT /part/4 { "is_active": true }`
+`PUT /part/update/2 { "is_active": true }`
 
 This returns 200, but does not update the database.
 
