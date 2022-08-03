@@ -5,7 +5,9 @@ import json
 import sqlite3
 from rest_framework.viewsets import ReadOnlyModelViewSet
 
-connection = sqlite3.connect("db.sqlite3")
+
+def connection():
+    return sqlite3.connect("db.sqlite3")
 
 
 def home(request):
@@ -25,12 +27,9 @@ def update_part(request, part_id):
         )
     )
     try:
-        with connection.cursor() as cursor:
-            cursor.execute(
-                "UPDATE parts_api SET {value_pairs} WHERE id={part_id}".format(
-                    value_pairs=value_pairs, part_id=part_id
-                )
-            )
+        with connection() as cursor:
+            query = f"UPDATE part SET {value_pairs} WHERE id={part_id}"
+            cursor.execute(query)
     except:
         return HttpResponse(status=500)
 
