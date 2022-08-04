@@ -3,7 +3,7 @@ from django.conf.urls import include, url
 from parts_api import views
 
 urlpatterns = [
-    url(r"^$", views.home, name="home"),
+    url(r"^$", views.home, name="home"),  # Adjusted regex because every endpoint call was landing on this url.
     url("admin/", admin.site.urls),
     url("part/update/(?P<part_id>\d+)/$", views.update_part, name="part-update"),
 ]

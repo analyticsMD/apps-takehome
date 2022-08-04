@@ -12,9 +12,10 @@ def home(request):
 
 
 @csrf_exempt
-@require_http_methods(["PUT"])
+@require_http_methods(["PUT"])  # Limited available actions to only allow `PUT` to this view
 def update_part(request, part_id):
     value_pairs = json.loads(request.body)
+    # Adjusted table name, previously it was pointing to `parts_api` table instead of `part`. Used model instead of sql.
     part = Part.objects.filter(id=part_id)
 
     if not part:
