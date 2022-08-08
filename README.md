@@ -4,15 +4,9 @@ Parts API takehome exercise for engineering candidates applying to the Apps team
 # Setup
 First, you'll need to get the app running in your local environment.
 1. Clone this repo: `git clone https://github.com/analyticsMD/apps-takehome`
-2. Navigate into the folder and create your python virtual environment using [pyenv](https://github.com/pyenv/pyenv#installation): 
-    1. `pyenv install 3.5.10`
-    2. `pyenv virtualenv 3.5.10 takehome-env`
-    3. `pyenv activate takehome-env` 
-3. Install requirements: `pip install -r requirements.txt`
-4. Run migrations: `./manage.py migrate`
-5. Run: `./manage.py runserver`
-
-Note: our application currently runs 3.5.10 and django 1.11 so we'll use those versions 
+2. Install requirements: `pip install -r requirements.txt` - should work with any version of Python > 3
+3. Run migrations: `./manage.py migrate`
+4. Run: `./manage.py runserver`
 
 # Instructions
 Parts Unlimited catalogs its seemingly unlimited parts, and this service is used by other teams to update various aspects of them through the existing endpoint. However, we've noticed that while we're not seeing errors, parts are not being updated as expected. As such, we'll need to fix the existing endpoint's functionality first, then develop a new view to be used that allows for CRUD operations on parts, in line with the functionality of our other views. We need you to accomplish the following tasks, and return a .zip of the project containing all changes necessary to accomplish all goals of both tasks.
