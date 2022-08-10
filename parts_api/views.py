@@ -27,7 +27,7 @@ def update_part(request, part_id):
     try:
         with connection.cursor() as cursor:
             cursor.execute(
-                "UPDATE parts_api SET {value_pairs} WHERE id={part_id}".format(
+                "UPDATE part SET {value_pairs} WHERE id={part_id}".format(
                     value_pairs=value_pairs, part_id=part_id
                 )
             )
