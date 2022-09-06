@@ -1,9 +1,4 @@
 from django.test import TestCase
-import sqlite3
-from parts_api import views
-from parts_api.tests.utils import HttpRequest, HttpResponse
-
-connection = sqlite3.connect("db.sqlite3")
 
 
 class PartViewTests(TestCase):

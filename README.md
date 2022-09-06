@@ -18,7 +18,7 @@ The relevant URL entry is:
 `url(r'/part/(?P<part_id>\w+)', views.update_part)`
 
 An example request that isn't working is:
-`PUT /part/4 { "is_active": true }`
+`curl -X PUT 127.0.0.1:8000/part/update/3/ -d '{"is_active": true}'`
 
 This returns 200, but does not update the database.
 

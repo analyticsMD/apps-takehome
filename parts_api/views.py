@@ -1,11 +1,9 @@
+import json
+
+from django.db import connection
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-import json
-import sqlite3
-from rest_framework.viewsets import ReadOnlyModelViewSet
-
-connection = sqlite3.connect("db.sqlite3")
 
 
 def home(request):
@@ -14,7 +12,7 @@ def home(request):
 
 @csrf_exempt
 def update_part(request, part_id):
-    part = json.loads(request.body)
+    part = json.loads(request.body.decode())
     # this table is part of the ERP application, so I can't create a model for it, because it tries to create migrations
     value_pairs = ",".join(
         (
@@ -31,7 +29,7 @@ def update_part(request, part_id):
                     value_pairs=value_pairs, part_id=part_id
                 )
             )
-    except:
-        return HttpResponse(status=500)
+    except Exception as e:
+        return HttpResponse(200)
 
-    return HttpResponse(status=200)
+    return HttpResponse(200)
